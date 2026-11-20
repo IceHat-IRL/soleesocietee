@@ -1,0 +1,523 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nike Factory Store</title>
+
+<style>
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .main-container {
+        background: linear-gradient(
+            135deg,
+            #F54927,
+            #ff8336,
+            #ff7300,
+            #fffc32
+        );
+        min-height: 100vh;
+    }
+
+    /* HEADER */
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 40px;
+    }
+
+    /* CUSTOM CIRCULAR LOGO */
+
+    .logo-container {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    .nike-logo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        display: block;
+        transform: scale(1.15);
+    }
+
+    .nav-container {
+        display: flex;
+        gap: 25px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        flex-wrap: wrap;
+    }
+
+    .nav-container li a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+    }
+
+    .nav-container li a:hover {
+        color: #33FFCC;
+    }
+
+    /* WEBSITE BANNER */
+
+    .banner {
+        width: 100%;
+        padding: 10px 20px 0;
+    }
+
+    .banner img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        border-radius: 10px;
+    }
+
+    /* PRODUCT SECTION */
+
+    .hero {
+        padding: 60px 20px;
+    }
+
+    .product-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+        max-width: 1000px;
+        margin: auto;
+        background: rgba(255,255,255,0.15);
+        padding: 40px;
+        border-radius: 15px;
+    }
+
+    .product-image img {
+        width: 350px;
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .product-info {
+        color: white;
+        max-width: 400px;
+    }
+
+    .product-info h1 {
+        font-size: 45px;
+        margin: 10px 0;
+    }
+
+    .product-info p {
+        line-height: 1.6;
+    }
+
+    .price {
+        font-size: 28px;
+        font-weight: bold;
+        margin: 20px 0;
+        color: #33FFCC;
+    }
+
+    select {
+        padding: 10px;
+        width: 150px;
+        border-radius: 5px;
+        border: none;
+    }
+
+    .btn {
+        display: inline-block;
+        background: #33FFCC;
+        color: #222;
+        text-decoration: none;
+        padding: 12px 25px;
+        margin-top: 20px;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+
+    .btn:hover {
+        background: white;
+    }
+
+    /* ORDER FORM */
+
+    .order-section {
+        padding: 50px 20px;
+    }
+
+    .order-container {
+        background: white;
+        max-width: 550px;
+        margin: auto;
+        padding: 35px;
+        border-radius: 10px;
+    }
+
+    .order-container h2 {
+        text-align: center;
+        font-size: 30px;
+    }
+
+    .order-container p {
+        text-align: center;
+        color: gray;
+    }
+
+    .form-group {
+        margin-bottom: 18px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .submit-btn {
+        width: 100%;
+        padding: 14px;
+        background: #F54927;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .submit-btn:hover {
+        background: #8A2387;
+    }
+
+    /* FOOTER */
+
+    .footer {
+        background: #222;
+        color: white;
+        text-align: center;
+        padding: 20px;
+    }
+
+    /* RESPONSIVE DESIGN */
+
+    @media (max-width: 700px) {
+
+        .header {
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .logo-container {
+            width: 100px;
+            height: 100px;
+        }
+
+        .nav-container {
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .banner {
+            padding: 10px 10px 0;
+        }
+
+        .product-container {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .product-info h1 {
+            font-size: 35px;
+        }
+
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="main-container">
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <div class="logo-container">
+            <img
+                src="logo.png"
+                alt="My Custom Circular Logo"
+                class="nike-logo">
+        </div>
+
+        <ul class="nav-container">
+            <li><a href="#">HOME</a></li>
+            <li><a href="#products">SHOES</a></li>
+            <li><a href="#services">SERVICES</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+            <li><a href="#limited">LIMITED STOCK!</a></li>
+            <li><a href="https://www.nike.com/ph/w/seasonal-sale-lt4x">11.11 SALE!!!</a></li>
+        </ul>
+
+    </header>
+
+
+    <!-- WEBSITE BANNER -->
+
+    <section class="banner">
+
+        <img src="banner.png"
+             alt="Website Promotional Banner">
+
+    </section>
+
+
+    <!-- PRODUCT SECTION -->
+
+    <section class="hero" id="products">
+
+        <div class="product-container">
+
+            <div class="product-image">
+
+                <img src="lebron23.avif"
+                     alt="Lebron 23 Shoes">
+
+            </div>
+
+
+            <div class="product-info">
+
+                <p>NEW COLLECTION</p>
+
+                <h1>Lebron 23</h1>
+
+                <p>
+                    Experience comfort, style, and performance
+                    with the Nike Lebron 23.
+                    Designed for basketball players who want
+                    to perform at their best.
+                </p>
+
+                <div class="price">
+                    ₱12,000.00
+                </div>
+
+                <label for="size">Select Size:</label>
+
+                <br><br>
+
+                <select id="size" name="size">
+
+                    <option value="8">Size 8</option>
+                    <option value="9">Size 9</option>
+                    <option value="10">Size 10</option>
+                    <option value="11" selected>Size 11</option>
+                    <option value="12">Size 12</option>
+
+                </select>
+
+                <br>
+
+                <a href="#order" class="btn">
+                    ORDER NOW
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CUSTOMER ORDER FORM -->
+
+    <section class="order-section" id="order">
+
+        <div class="order-container">
+
+            <h2>Place Your Order</h2>
+
+            <p>Please provide your information below.</p>
+
+            <form id="orderForm"
+                  action="https://api.web3forms.com/submit"
+                  method="POST">
+
+                <!-- WEB3FORMS ACCESS KEY -->
+
+                <input type="hidden"
+                       name="access_key"
+                       value="712f5b48-4f58-4516-8c01-24015d401580">
+
+
+                <!-- PRODUCT INFORMATION -->
+
+                <input type="hidden"
+                       name="Product"
+                       value="Nike Lebron 23">
+
+
+                <!-- LAST NAME -->
+
+                <div class="form-group">
+
+                    <label for="name">Last Name</label>
+
+                    <input type="text"
+                           id="name"
+                           name="Last Name"
+                           placeholder="Enter your last name"
+                           required>
+
+                </div>
+
+
+                <!-- FIRST NAME -->
+
+                <div class="form-group">
+
+                    <label for="fname">First Name</label>
+
+                    <input type="text"
+                           id="fname"
+                           name="First Name"
+                           placeholder="Enter your first name"
+                           required>
+
+                </div>
+
+
+                <!-- ADDRESS -->
+
+                <div class="form-group">
+
+                    <label for="address">Address</label>
+
+                    <input type="text"
+                           id="address"
+                           name="Address"
+                           placeholder="Enter your address"
+                           required>
+
+                </div>
+
+
+                <!-- EMAIL ADDRESS -->
+
+                <div class="form-group">
+
+                    <label for="emailAdd">Email Address</label>
+
+                    <input type="email"
+                           id="emailAdd"
+                           name="email"
+                           placeholder="Enter your email"
+                           required>
+
+                </div>
+
+
+                <!-- CONTACT NUMBER -->
+
+                <div class="form-group">
+
+                    <label for="contactNumber">Contact Number</label>
+
+                    <input type="tel"
+                           id="contactNumber"
+                           name="Contact Number"
+                           placeholder="Enter your contact number"
+                           required>
+
+                </div>
+
+
+                <!-- SHOE SIZE -->
+
+                <div class="form-group">
+
+                    <label for="shoeSize">Shoe Size</label>
+
+                    <select id="shoeSize"
+                            name="Shoe Size"
+                            required>
+
+                        <option value="8">Size 8</option>
+                        <option value="9">Size 9</option>
+                        <option value="10">Size 10</option>
+                        <option value="11" selected>Size 11</option>
+                        <option value="12">Size 12</option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- QUANTITY -->
+
+                <div class="form-group">
+
+                    <label for="quantity">Enter Quantity</label>
+
+                    <input type="number"
+                           id="quantity"
+                           name="Quantity"
+                           min="1"
+                           value="1"
+                           required>
+
+                </div>
+
+
+                <!-- SUBMIT BUTTON -->
+
+                <button type="submit" class="submit-btn">
+                    SUBMIT ORDER
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer class="footer" id="contact">
+
+        <p>&copy; Sole Society 2026. All Rights Reserved.</p>
+
+    </footer>
+
+</div>
+
+</body>
+
+</html>
